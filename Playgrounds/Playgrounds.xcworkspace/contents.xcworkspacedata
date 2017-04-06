@@ -5,6 +5,9 @@
       location = "container:../WatsonDeveloperCloud.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:Image Classification.playground">
+   </FileRef>
+   <FileRef
       location = "group:Universal Translator.playground">
    </FileRef>
 </Workspace>
