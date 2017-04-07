@@ -4,8 +4,6 @@
  ## Speech to Text: Convert English Audio to English Text
  
  The first step is to turn English audio to English text using the Speech to Text service.
- 
- ![Audio File](ReserveTable.wav)
  */
 
 import PlaygroundSupport
