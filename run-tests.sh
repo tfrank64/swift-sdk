@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 xcodebuild build -scheme "RestKit" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" | xcpretty
 xcodebuild test -scheme "AlchemyDataNewsV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
