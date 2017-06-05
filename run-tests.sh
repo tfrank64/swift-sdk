@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -o pipefail
+set -ov pipefail
 xcodebuild build -scheme "RestKit" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" | xcpretty
 xcodebuild test -scheme "AlchemyDataNewsV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
 bash <(curl -s https://codecov.io/bash)
