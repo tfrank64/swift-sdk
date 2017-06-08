@@ -17,7 +17,7 @@ before_install:
   - for D in `find Tests -type d -maxdepth 1 -mindepth 1`; do echo "cp SupportingFiles/Credentials.swift $D/"; done
 script:
   # build and test for iOS 10
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./run-tests.sh ; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then ./Scripts/run-tests.sh ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get update -y ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then wget https://swift.org/builds/swift-3.1-release/ubuntu1404/swift-3.1-RELEASE/swift-3.1-RELEASE-ubuntu14.04.tar.gz ; fi
   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then tar xzvf swift-3.1-RELEASE-ubuntu14.04.tar.gz ; fi
