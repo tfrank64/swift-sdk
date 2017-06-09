@@ -13,7 +13,6 @@ function uploadCodecov {
     bash <(curl -s https://codecov.io/bash)
 }
 
-cd ..
 xcodebuild build -scheme "RestKit" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" | xcpretty
 checkStatus $?
 xcodebuild test -scheme "AlchemyDataNewsV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
@@ -26,8 +25,8 @@ xcodebuild test -scheme "ConversationV1" -sdk "$IOS_SDK" -destination "$IOS10_DE
 checkStatus $? && uploadCodecov
 xcodebuild test -scheme "DialogV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
 checkStatus $? && uploadCodecov
-xcodebuild test -scheme "DiscoveryV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
-checkStatus $? && uploadCodecov
+# xcodebuild test -scheme "DiscoveryV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
+# checkStatus $? && uploadCodecov
 xcodebuild test -scheme "DocumentConversionV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
 checkStatus $? && uploadCodecov
 xcodebuild test -scheme "LanguageTranslatorV2" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
