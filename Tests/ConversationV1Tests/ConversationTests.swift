@@ -46,7 +46,7 @@ class ConversationTests: XCTestCase {
     func instantiateConversation() {
         let username = Credentials.ConversationUsername
         let password = Credentials.ConversationPassword
-        let version = "2017-02-03"
+        let version = "2017-05-26"
         conversation = Conversation(username: username, password: password, version: version)
     }
 
@@ -77,7 +77,7 @@ class ConversationTests: XCTestCase {
         let nodes1 = ["node_1_1467221909631"]
         
         var context: Context?
-        conversation.message(withWorkspace: workspaceID, failure: failWithError) {
+        conversation.message(workspaceID: workspaceID, failure: failWithError) {
             response in
             
             // verify input
@@ -87,9 +87,9 @@ class ConversationTests: XCTestCase {
             XCTAssertNotNil(response.context.conversationID)
             XCTAssertNotEqual(response.context.conversationID, "")
             XCTAssertNotNil(response.context.system)
-            XCTAssertEqual(response.context.system.dialogStack, ["root"])
-            XCTAssertEqual(response.context.system.dialogTurnCounter, 1)
-            XCTAssertEqual(response.context.system.dialogRequestCounter, 1)
+//            XCTAssertEqual(system.dialogStack, ["root"])
+//            XCTAssertEqual(system.dialogTurnCounter, 1)
+//            XCTAssertEqual(system.dialogRequestCounter, 1)
             
             // verify entities
             XCTAssertTrue(response.entities.isEmpty)
@@ -98,11 +98,12 @@ class ConversationTests: XCTestCase {
             XCTAssertTrue(response.intents.isEmpty)
             
             // verify output
-            XCTAssertTrue(response.output.logMessages.isEmpty)
-            XCTAssertEqual(response.output.text, response1)
-            XCTAssertEqual(response.output.nodesVisited, nodes1)
-            
-            context = response.context
+            XCTAssertTrue((response.output.logMessages?.isEmpty)!)
+            XCTAssertEqual(response.output.text!, response1)
+            XCTAssertEqual(response.output.nodesVisited!, nodes1)
+
+            context = try? Context(json: (response.context.toJSON()))
+
             expectation1.fulfill()
         }
         waitForExpectations()
@@ -110,29 +111,29 @@ class ConversationTests: XCTestCase {
         let description2 = "Continue a conversation."
         let expectation2 = self.expectation(description: description2)
         
-        let text = "Turn on the radio."
-        let request = MessageRequest(text: text, context: context!)
+        let input = InputData(text: "Turn on the radio.")
+        let request = MessageRequest(input: input, context: context!)
         let response2 = ["", "Sure thing! Which genre would you prefer? Jazz is my personal favorite.."]
         let nodes2 = ["node_1_1467232431348", "node_2_1467232480480", "node_1_1467994455318"]
         
-        conversation.message(withWorkspace: workspaceID, request: request, failure: failWithError) {
+        conversation.message(workspaceID: workspaceID, body: request, failure: failWithError) {
             response in
             
             // verify input
-            XCTAssertEqual(response.input!.text, text)
+            XCTAssertEqual(response.input?.text, input.text)
             
             // verify context
             XCTAssertEqual(response.context.conversationID, context!.conversationID)
             XCTAssertNotNil(response.context.system)
-            XCTAssertEqual(response.context.system.dialogStack, ["node_1_1467994455318"])
-            XCTAssertEqual(response.context.system.dialogTurnCounter, 2)
-            XCTAssertEqual(response.context.system.dialogRequestCounter, 2)
+//            XCTAssertEqual(context.system.dialogStack, ["node_1_1467994455318"])
+//            XCTAssertEqual(context.system.dialogTurnCounter, 2)
+//            XCTAssertEqual(context.system.dialogRequestCounter, 2)
             
             // verify entities
             XCTAssertEqual(response.entities.count, 1)
             XCTAssertEqual(response.entities[0].entity, "appliance")
-            XCTAssertEqual(response.entities[0].startIndex, 12)
-            XCTAssertEqual(response.entities[0].endIndex, 17)
+            XCTAssertEqual(response.entities[0].location[0], 12)
+            XCTAssertEqual(response.entities[0].location[1], 17)
             XCTAssertEqual(response.entities[0].value, "music")
             
             // verify intents
@@ -142,9 +143,10 @@ class ConversationTests: XCTestCase {
             XCTAssert(response.intents[0].confidence <= 1.00)
             
             // verify output
-            XCTAssertTrue(response.output.logMessages.isEmpty)
-            XCTAssertEqual(response.output.text, response2)
-            XCTAssertEqual(response.output.nodesVisited, nodes2)
+
+            XCTAssertTrue(response.output.logMessages!.isEmpty)
+            XCTAssertEqual(response.output.text!, response2)
+            XCTAssertEqual(response.output.nodesVisited!, nodes2)
             
             expectation2.fulfill()
         }
@@ -156,16 +158,17 @@ class ConversationTests: XCTestCase {
         let expectation1 = expectation(description: description1)
         
         var context: Context?
-        var entities: [Entity]?
-        var intents: [Intent]?
-        var output: Output?
+        var entities: [RuntimeEntity]?
+        var intents: [RuntimeIntent]?
+        var output: OutputData?
         
-        conversation.message(withWorkspace: workspaceID, failure: failWithError) {
+        conversation.message(workspaceID: workspaceID, failure: failWithError) {
             response in
-            context = response.context
+
+            context = try? Context(json: response.context.toJSON())
             entities = response.entities
             intents = response.intents
-            output = response.output
+            output = try? OutputData(json: response.output.toJSON())
             expectation1.fulfill()
         }
         waitForExpectations()
@@ -173,9 +176,9 @@ class ConversationTests: XCTestCase {
         let description2 = "Continue a conversation."
         let expectation2 = expectation(description: description2)
         
-        let text2 = "Turn on the radio."
-        let request2 = MessageRequest(text: text2, context: context, entities: entities, intents: intents, output: output)
-        conversation.message(withWorkspace: workspaceID, request: request2, failure: failWithError) {
+        let input2 = InputData(text: "Turn on the radio.")
+        let request2 = MessageRequest(input: input2, context: context, entities: entities, intents: intents, output: output)
+        conversation.message(workspaceID: workspaceID, body: request2, failure: failWithError) {
             response in
             
             // verify objects are non-nil
@@ -196,8 +199,8 @@ class ConversationTests: XCTestCase {
                 let entity1 = entities![i]
                 let entity2 = response.entities[i]
                 XCTAssertEqual(entity1.entity, entity2.entity)
-                XCTAssertEqual(entity1.startIndex, entity2.startIndex)
-                XCTAssertEqual(entity1.endIndex, entity2.endIndex)
+                XCTAssertEqual(entity1.location[0], entity2.location[0])
+                XCTAssertEqual(entity1.location[1], entity2.location[1])
                 XCTAssertEqual(entity1.value, entity2.value)
             }
             
@@ -211,13 +214,13 @@ class ConversationTests: XCTestCase {
         let expectation1 = expectation(description: description1)
         
         var context: Context?
-        var entities: [Entity]?
-        var intents: [Intent]?
-        var output: Output?
+        var entities: [RuntimeEntity]?
+        var intents: [RuntimeIntent]?
+        var output: OutputData?
         
-        conversation.message(withWorkspace: workspaceID, failure: failWithError) {
+        conversation.message(workspaceID: workspaceID, failure: failWithError) {
             response in
-            context = response.context
+            context = try? Context(json: response.context.toJSON())
             expectation1.fulfill()
         }
         waitForExpectations()
@@ -225,14 +228,14 @@ class ConversationTests: XCTestCase {
         let description2 = "Continue a conversation."
         let expectation2 = expectation(description: description2)
         
-        let text2 = "Turn on the radio."
-        let request2 = MessageRequest(text: text2, context: context, entities: entities, intents: intents, output: output)
-        conversation.message(withWorkspace: workspaceID, request: request2, failure: failWithError) {
+        let input2 = InputData(text: "Turn on the radio.")
+        let request2 = MessageRequest(input: input2, context: context, entities: entities, intents: intents, output: output)
+        conversation.message(workspaceID: workspaceID, body: request2, failure: failWithError) {
             response in
-            context = response.context
+            context = try? Context(json: response.context.toJSON())
             entities = response.entities
             intents = response.intents
-            output = response.output
+            output = try? OutputData(json: response.output.toJSON())
             expectation2.fulfill()
         }
         waitForExpectations()
@@ -240,9 +243,9 @@ class ConversationTests: XCTestCase {
         let description3 = "Continue a conversation with non-empty intents and entities."
         let expectation3 = expectation(description: description3)
         
-        let text3 = "Rock music."
-        let request3 = MessageRequest(text: text3, context: context, entities: entities, intents: intents, output: output)
-        conversation.message(withWorkspace: workspaceID, request: request3, failure: failWithError) {
+        let input3 = InputData(text: "Rock music.")
+        let request3 = MessageRequest(input: input3, context: context, entities: entities, intents: intents, output: output)
+        conversation.message(workspaceID: workspaceID, body: request3, failure: failWithError) {
             response in
             
             // verify objects are non-nil
@@ -263,8 +266,8 @@ class ConversationTests: XCTestCase {
                 let entity1 = entities![i]
                 let entity2 = response.entities[i]
                 XCTAssertEqual(entity1.entity, entity2.entity)
-                XCTAssertEqual(entity1.startIndex, entity2.startIndex)
-                XCTAssertEqual(entity1.endIndex, entity2.endIndex)
+                XCTAssertEqual(entity1.location[0], entity2.location[0])
+                XCTAssertEqual(entity1.location[1], entity2.location[1])
                 XCTAssertEqual(entity1.value, entity2.value)
             }
             
@@ -278,9 +281,9 @@ class ConversationTests: XCTestCase {
         let expectation1 = expectation(description: description1)
         
         var context: Context?
-        conversation.message(withWorkspace: workspaceID, failure: failWithError) {
+        conversation.message(workspaceID: workspaceID, failure: failWithError) {
             response in
-            context = response.context
+            context = try? Context(json: response.context.toJSON())
             expectation1.fulfill()
         }
         waitForExpectations()
@@ -288,9 +291,9 @@ class ConversationTests: XCTestCase {
         let description2 = "Continue a conversation."
         let expectation2 = expectation(description: description2)
         
-        let text2 = "Turn on the radio."
-        let request2 = MessageRequest(text: text2, context: context)
-        conversation.message(withWorkspace: workspaceID, request: request2, failure: failWithError) {
+        let input2 = InputData(text: "Turn on the radio.")
+        let request2 = MessageRequest(input: input2, context: context)
+        conversation.message(workspaceID: workspaceID, body: request2, failure: failWithError) {
             response in
             let reprompt = response.context.json["reprompt"] as? Bool
             XCTAssertNotNil(reprompt)
@@ -969,7 +972,7 @@ class ConversationTests: XCTestCase {
             expectation.fulfill()
         }
         
-        conversation.message(withWorkspace: workspaceID, failure: failure, success: failWithResult)
+        conversation.message(workspaceID: workspaceID, failure: failure, success: failWithResult)
         waitForExpectations()
     }
 }
