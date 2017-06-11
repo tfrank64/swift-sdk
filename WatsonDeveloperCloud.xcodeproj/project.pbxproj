@@ -384,6 +384,7 @@
 		CA523E7C1EEB17E3001DF533 /* WorkspaceExportResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80366F1EEB172D00BD860B /* WorkspaceExportResponse.swift */; };
 		CA523E7D1EEB17E3001DF533 /* WorkspaceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA8036701EEB172D00BD860B /* WorkspaceResponse.swift */; };
 		CA523E801EEC6A42001DF533 /* LogPaginationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA523E7E1EEC5F92001DF533 /* LogPaginationResponse.swift */; };
+		CA640EC31EED929A00EC9435 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AAAF39E1CEE99FC00B74848 /* RestKit.framework */; };
 		CE3AC72F1E0450BA00543AA9 /* Relation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3AC72E1E0450BA00543AA9 /* Relation.swift */; };
 		CE3AC7311E045CBA00543AA9 /* Entity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3AC7301E045CBA00543AA9 /* Entity.swift */; };
 		CE5DA8421DEC961400736D31 /* CollectionImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE5DA8411DEC961400736D31 /* CollectionImages.swift */; };
@@ -1424,6 +1425,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA640EC31EED929A00EC9435 /* RestKit.framework in Frameworks */,
 				7AB4452E1D3E647A00E8748A /* ConversationV1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
