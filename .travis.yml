@@ -8,7 +8,6 @@ matrix:
 branches:
   only:
     - master
-    - refactor-travis
 env:
   global:
     - IOS_SDK="iphonesimulator10.3"

@@ -25,8 +25,8 @@ xcodebuild test -scheme "ConversationV1" -sdk "$IOS_SDK" -destination "$IOS10_DE
 checkStatus $? && uploadCodecov
 xcodebuild test -scheme "DialogV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
 checkStatus $? && uploadCodecov
-# xcodebuild test -scheme "DiscoveryV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
-# checkStatus $? && uploadCodecov
+xcodebuild test -scheme "DiscoveryV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
+checkStatus $? && uploadCodecov
 xcodebuild test -scheme "DocumentConversionV1" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
 checkStatus $? && uploadCodecov
 xcodebuild test -scheme "LanguageTranslatorV2" -sdk "$IOS_SDK" -destination "$IOS10_DESTINATION" -enableCodeCoverage "YES" | xcpretty
