@@ -18,39 +18,53 @@ import Foundation
 import RestKit
 
 /** The pagination data for the returned objects. */
-public struct LogPaginationResponse: JSONDecodable, JSONEncodable {
+public struct Pagination: JSONDecodable, JSONEncodable {
+
+    /// The URL that will return the same page of results.
+    public let refreshUrl: String
 
     /// The URL that will return the next page of results.
     public let nextUrl: String?
 
     /// Reserved for future use.
+    public let total: Int?
+
+    /// Reserved for future use.
     public let matched: Int?
 
     /**
-     Initialize a `LogPaginationResponse` with member variables.
+     Initialize a `Pagination` with member variables.
 
+     - parameter refreshUrl: The URL that will return the same page of results.
      - parameter nextUrl: The URL that will return the next page of results.
+     - parameter total: Reserved for future use.
      - parameter matched: Reserved for future use.
 
-     - returns: An initialized `LogPaginationResponse`.
+     - returns: An initialized `Pagination`.
     */
-    public init(nextUrl: String? = nil, matched: Int? = nil) {
+    public init(refreshUrl: String, nextUrl: String? = nil, total: Int? = nil, matched: Int? = nil) {
+        self.refreshUrl = refreshUrl
         self.nextUrl = nextUrl
+        self.total = total
         self.matched = matched
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `LogPaginationResponse` model from JSON.
+    /// Used internally to initialize a `Pagination` model from JSON.
     public init(json: JSON) throws {
+        refreshUrl = try json.getString(at: "refresh_url")
         nextUrl = try? json.getString(at: "next_url")
+        total = try? json.getInt(at: "total")
         matched = try? json.getInt(at: "matched")
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `LogPaginationResponse` model to JSON.
+    /// Used internally to serialize a `Pagination` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
+        json["refresh_url"] = refreshUrl
         if let nextUrl = nextUrl { json["next_url"] = nextUrl }
+        if let total = total { json["total"] = total }
         if let matched = matched { json["matched"] = matched }
         return json
     }

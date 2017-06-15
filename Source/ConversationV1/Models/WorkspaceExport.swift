@@ -17,8 +17,8 @@
 import Foundation
 import RestKit
 
-/** WorkspaceExportResponse. */
-public struct WorkspaceExportResponse: JSONDecodable, JSONEncodable {
+/** WorkspaceExport. */
+public struct WorkspaceExport: JSONDecodable, JSONEncodable {
 
     /// The current status of the workspace.
     public enum Status: String {
@@ -54,19 +54,19 @@ public struct WorkspaceExportResponse: JSONDecodable, JSONEncodable {
     public let status: Status
 
     /// An array of intents.
-    public let intents: [IntentExportResponse]?
+    public let intents: [IntentExport]?
 
     /// An array of entities.
-    public let entities: [EntityExportResponse]?
+    public let entities: [EntityExport]?
 
     /// An array of counterexamples.
-    public let counterexamples: [ExampleResponse]?
+    public let counterexamples: [Example]?
 
     /// An array of objects describing the dialog nodes in the workspace.
-    public let dialogNodes: [DialogNodeResponse]?
+    public let dialogNodes: [DialogNode]?
 
     /**
-     Initialize a `WorkspaceExportResponse` with member variables.
+     Initialize a `WorkspaceExport` with member variables.
 
      - parameter name: The name of the workspace.
      - parameter description: The description of the workspace.
@@ -81,9 +81,9 @@ public struct WorkspaceExportResponse: JSONDecodable, JSONEncodable {
      - parameter counterexamples: An array of counterexamples.
      - parameter dialogNodes: An array of objects describing the dialog nodes in the workspace.
 
-     - returns: An initialized `WorkspaceExportResponse`.
+     - returns: An initialized `WorkspaceExport`.
     */
-    public init(name: String, description: String, language: String, metadata: [String: Any], created: String, updated: String, workspaceID: String, status: Status, intents: [IntentExportResponse]? = nil, entities: [EntityExportResponse]? = nil, counterexamples: [ExampleResponse]? = nil, dialogNodes: [DialogNodeResponse]? = nil) {
+    public init(name: String, description: String, language: String, metadata: [String: Any], created: String, updated: String, workspaceID: String, status: Status, intents: [IntentExport]? = nil, entities: [EntityExport]? = nil, counterexamples: [Example]? = nil, dialogNodes: [DialogNode]? = nil) {
         self.name = name
         self.description = description
         self.language = language
@@ -99,7 +99,7 @@ public struct WorkspaceExportResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `WorkspaceExportResponse` model from JSON.
+    /// Used internally to initialize a `WorkspaceExport` model from JSON.
     public init(json: JSON) throws {
         name = try json.getString(at: "name")
         description = try json.getString(at: "description")
@@ -114,14 +114,14 @@ public struct WorkspaceExportResponse: JSONDecodable, JSONEncodable {
             throw JSON.Error.valueNotConvertible(value: json, to: type)
         }
         self.status = status
-        intents = try? json.decodedArray(at: "intents", type: IntentExportResponse.self)
-        entities = try? json.decodedArray(at: "entities", type: EntityExportResponse.self)
-        counterexamples = try? json.decodedArray(at: "counterexamples", type: ExampleResponse.self)
-        dialogNodes = try? json.decodedArray(at: "dialog_nodes", type: DialogNodeResponse.self)
+        intents = try? json.decodedArray(at: "intents", type: IntentExport.self)
+        entities = try? json.decodedArray(at: "entities", type: EntityExport.self)
+        counterexamples = try? json.decodedArray(at: "counterexamples", type: Example.self)
+        dialogNodes = try? json.decodedArray(at: "dialog_nodes", type: DialogNode.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `WorkspaceExportResponse` model to JSON.
+    /// Used internally to serialize a `WorkspaceExport` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["name"] = name

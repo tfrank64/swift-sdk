@@ -17,20 +17,40 @@
 import Foundation
 import RestKit
 
-/** An object describing a dialog node. */
-public struct DialogNodeResponse: JSONDecodable, JSONEncodable {
+/** Log message details. */
+public struct LogMessage: JSONDecodable, JSONEncodable {
 
     /// The raw JSON object used to construct this model.
     public let json: [String: Any]
 
+    /// The severity of the message.
+    public enum Level: String {
+        case info = "info"
+        case error = "error"
+        case warn = "warn"
+    }
+
+    /// The severity of the message.
+    public let level: Level?
+
+    /// The text of the message.
+    public let msg: String?
+
     // MARK: JSONDecodable
-    /// Used internally to initialize a `DialogNodeResponse` model from JSON.
+    /// Used internally to initialize a `LogMessage` model from JSON.
     public init(json: JSON) throws {
         self.json = try json.getDictionaryObject()
+ 
+        guard let level = Level(rawValue: try json.getString(at: "level")) else {
+            let type = type(of: Level.info)
+            throw JSON.Error.valueNotConvertible(value: json, to: type)
+        }
+        self.level = level
+        msg = try? json.getString(at: "msg")
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `DialogNodeResponse` model to JSON.
+    /// Used internally to serialize a `LogMessage` model to JSON.
     public func toJSONObject() -> Any {
         return json
     }

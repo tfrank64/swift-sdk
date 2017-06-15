@@ -17,8 +17,8 @@
 import Foundation
 import RestKit
 
-/** ExampleResponse. */
-public struct ExampleResponse: JSONDecodable, JSONEncodable {
+/** Example. */
+public struct Example: JSONDecodable, JSONEncodable {
 
     /// The timestamp for creation of the example.
     public let created: String
@@ -30,13 +30,13 @@ public struct ExampleResponse: JSONDecodable, JSONEncodable {
     public let text: String
 
     /**
-     Initialize a `ExampleResponse` with member variables.
+     Initialize a `Example` with member variables.
 
      - parameter created: The timestamp for creation of the example.
      - parameter updated: The timestamp for the last update to the example.
      - parameter text: The text of the example.
 
-     - returns: An initialized `ExampleResponse`.
+     - returns: An initialized `Example`.
     */
     public init(created: String, updated: String, text: String) {
         self.created = created
@@ -45,7 +45,7 @@ public struct ExampleResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `ExampleResponse` model from JSON.
+    /// Used internally to initialize a `Example` model from JSON.
     public init(json: JSON) throws {
         created = try json.getString(at: "created")
         updated = try json.getString(at: "updated")
@@ -53,7 +53,7 @@ public struct ExampleResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `ExampleResponse` model to JSON.
+    /// Used internally to serialize a `Example` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["created"] = created

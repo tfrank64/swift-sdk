@@ -17,8 +17,8 @@
 import Foundation
 import RestKit
 
-/** WorkspaceResponse. */
-public struct WorkspaceResponse: JSONDecodable, JSONEncodable {
+/** Workspace. */
+public struct Workspace: JSONDecodable, JSONEncodable {
 
     /// The name of the workspace.
     public let name: String
@@ -42,7 +42,7 @@ public struct WorkspaceResponse: JSONDecodable, JSONEncodable {
     public let metadata: [String: Any]?
 
     /**
-     Initialize a `WorkspaceResponse` with member variables.
+     Initialize a `Workspace` with member variables.
 
      - parameter name: The name of the workspace.
      - parameter language: The language of the workspace.
@@ -52,7 +52,7 @@ public struct WorkspaceResponse: JSONDecodable, JSONEncodable {
      - parameter description: The description of the workspace.
      - parameter metadata: Any metadata that is required by the workspace.
 
-     - returns: An initialized `WorkspaceResponse`.
+     - returns: An initialized `Workspace`.
     */
     public init(name: String, language: String, created: String, updated: String, workspaceID: String, description: String? = nil, metadata: [String: Any]? = nil) {
         self.name = name
@@ -65,7 +65,7 @@ public struct WorkspaceResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `WorkspaceResponse` model from JSON.
+    /// Used internally to initialize a `Workspace` model from JSON.
     public init(json: JSON) throws {
         name = try json.getString(at: "name")
         language = try json.getString(at: "language")
@@ -77,7 +77,7 @@ public struct WorkspaceResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `WorkspaceResponse` model to JSON.
+    /// Used internally to serialize a `Workspace` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["name"] = name

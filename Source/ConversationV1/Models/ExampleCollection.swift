@@ -17,37 +17,37 @@
 import Foundation
 import RestKit
 
-/** ExampleCollectionResponse. */
-public struct ExampleCollectionResponse: JSONDecodable, JSONEncodable {
+/** ExampleCollection. */
+public struct ExampleCollection: JSONDecodable, JSONEncodable {
 
     /// An array of ExampleResponse objects describing the examples defined for the intent.
-    public let examples: [ExampleResponse]
+    public let examples: [Example]
 
     /// An object defining the pagination data for the returned objects.
-    public let pagination: PaginationResponse
+    public let pagination: Pagination
 
     /**
-     Initialize a `ExampleCollectionResponse` with member variables.
+     Initialize a `ExampleCollection` with member variables.
 
      - parameter examples: An array of ExampleResponse objects describing the examples defined for the intent.
      - parameter pagination: An object defining the pagination data for the returned objects.
 
-     - returns: An initialized `ExampleCollectionResponse`.
+     - returns: An initialized `ExampleCollection`.
     */
-    public init(examples: [ExampleResponse], pagination: PaginationResponse) {
+    public init(examples: [Example], pagination: Pagination) {
         self.examples = examples
         self.pagination = pagination
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `ExampleCollectionResponse` model from JSON.
+    /// Used internally to initialize a `ExampleCollection` model from JSON.
     public init(json: JSON) throws {
-        examples = try json.decodedArray(at: "examples", type: ExampleResponse.self)
-        pagination = try json.decode(at: "pagination", type: PaginationResponse.self)
+        examples = try json.decodedArray(at: "examples", type: Example.self)
+        pagination = try json.decode(at: "pagination", type: Pagination.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `ExampleCollectionResponse` model to JSON.
+    /// Used internally to serialize a `ExampleCollection` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["examples"] = examples.map { $0.toJSONObject() }

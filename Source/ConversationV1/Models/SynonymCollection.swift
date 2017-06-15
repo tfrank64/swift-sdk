@@ -17,37 +17,37 @@
 import Foundation
 import RestKit
 
-/** SynonymCollectionResponse. */
-public struct SynonymCollectionResponse: JSONDecodable, JSONEncodable {
+/** SynonymCollection. */
+public struct SynonymCollection: JSONDecodable, JSONEncodable {
 
     /// An array of synonyms.
-    public let synonyms: [SynonymResponse]
+    public let synonyms: [Synonym]
 
     /// An object defining the pagination data for the returned objects.
-    public let pagination: PaginationResponse
+    public let pagination: Pagination
 
     /**
-     Initialize a `SynonymCollectionResponse` with member variables.
+     Initialize a `SynonymCollection` with member variables.
 
      - parameter synonyms: An array of synonyms.
      - parameter pagination: An object defining the pagination data for the returned objects.
 
-     - returns: An initialized `SynonymCollectionResponse`.
+     - returns: An initialized `SynonymCollection`.
     */
-    public init(synonyms: [SynonymResponse], pagination: PaginationResponse) {
+    public init(synonyms: [Synonym], pagination: Pagination) {
         self.synonyms = synonyms
         self.pagination = pagination
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `SynonymCollectionResponse` model from JSON.
+    /// Used internally to initialize a `SynonymCollection` model from JSON.
     public init(json: JSON) throws {
-        synonyms = try json.decodedArray(at: "synonyms", type: SynonymResponse.self)
-        pagination = try json.decode(at: "pagination", type: PaginationResponse.self)
+        synonyms = try json.decodedArray(at: "synonyms", type: Synonym.self)
+        pagination = try json.decode(at: "pagination", type: Pagination.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `SynonymCollectionResponse` model to JSON.
+    /// Used internally to serialize a `SynonymCollection` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["synonyms"] = synonyms.map { $0.toJSONObject() }

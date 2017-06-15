@@ -17,8 +17,8 @@
 import Foundation
 import RestKit
 
-/** EntityExportResponse. */
-public struct EntityExportResponse: JSONDecodable, JSONEncodable {
+/** Entity. */
+public struct Entity: JSONDecodable, JSONEncodable {
 
     /// The name of the entity.
     public let entity: String
@@ -38,11 +38,8 @@ public struct EntityExportResponse: JSONDecodable, JSONEncodable {
     /// Whether fuzzy matching is used for the entity.
     public let fuzzyMatch: Bool?
 
-    /// An array of entity values.
-    public let values: [ValueExportResponse]?
-
     /**
-     Initialize a `EntityExportResponse` with member variables.
+     Initialize a `Entity` with member variables.
 
      - parameter entity: The name of the entity.
      - parameter created: The timestamp for creation of the entity.
@@ -50,22 +47,20 @@ public struct EntityExportResponse: JSONDecodable, JSONEncodable {
      - parameter description: The description of the entity.
      - parameter metadata: Any metadata related to the entity.
      - parameter fuzzyMatch: Whether fuzzy matching is used for the entity.
-     - parameter values: An array of entity values.
 
-     - returns: An initialized `EntityExportResponse`.
+     - returns: An initialized `Entity`.
     */
-    public init(entity: String, created: String, updated: String, description: String? = nil, metadata: [String: Any]? = nil, fuzzyMatch: Bool? = nil, values: [ValueExportResponse]? = nil) {
+    public init(entity: String, created: String, updated: String, description: String? = nil, metadata: [String: Any]? = nil, fuzzyMatch: Bool? = nil) {
         self.entity = entity
         self.created = created
         self.updated = updated
         self.description = description
         self.metadata = metadata
         self.fuzzyMatch = fuzzyMatch
-        self.values = values
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `EntityExportResponse` model from JSON.
+    /// Used internally to initialize a `Entity` model from JSON.
     public init(json: JSON) throws {
         entity = try json.getString(at: "entity")
         created = try json.getString(at: "created")
@@ -73,11 +68,10 @@ public struct EntityExportResponse: JSONDecodable, JSONEncodable {
         description = try? json.getString(at: "description")
         metadata = try? json.getDictionaryObject(at: "metadata")
         fuzzyMatch = try? json.getBool(at: "fuzzy_match")
-        values = try? json.decodedArray(at: "values", type: ValueExportResponse.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `EntityExportResponse` model to JSON.
+    /// Used internally to serialize a `Entity` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["entity"] = entity
@@ -86,9 +80,6 @@ public struct EntityExportResponse: JSONDecodable, JSONEncodable {
         if let description = description { json["description"] = description }
         if let metadata = metadata { json["metadata"] = metadata }
         if let fuzzyMatch = fuzzyMatch { json["fuzzy_match"] = fuzzyMatch }
-        if let values = values {
-            json["values"] = values.map { $0.toJSONObject() }
-        }
         return json
     }
 }

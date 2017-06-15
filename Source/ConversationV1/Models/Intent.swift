@@ -17,8 +17,8 @@
 import Foundation
 import RestKit
 
-/** IntentExportResponse. */
-public struct IntentExportResponse: JSONDecodable, JSONEncodable {
+/** Intent. */
+public struct Intent: JSONDecodable, JSONEncodable {
 
     /// The name of the intent.
     public let intent: String
@@ -32,49 +32,40 @@ public struct IntentExportResponse: JSONDecodable, JSONEncodable {
     /// The description of the intent.
     public let description: String?
 
-    /// An array of user input examples.
-    public let examples: [ExampleResponse]?
-
     /**
-     Initialize a `IntentExportResponse` with member variables.
+     Initialize a `Intent` with member variables.
 
      - parameter intent: The name of the intent.
      - parameter created: The timestamp for creation of the intent.
      - parameter updated: The timestamp for the last update to the intent.
      - parameter description: The description of the intent.
-     - parameter examples: An array of user input examples.
 
-     - returns: An initialized `IntentExportResponse`.
+     - returns: An initialized `Intent`.
     */
-    public init(intent: String, created: String, updated: String, description: String? = nil, examples: [ExampleResponse]? = nil) {
+    public init(intent: String, created: String, updated: String, description: String? = nil) {
         self.intent = intent
         self.created = created
         self.updated = updated
         self.description = description
-        self.examples = examples
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `IntentExportResponse` model from JSON.
+    /// Used internally to initialize a `Intent` model from JSON.
     public init(json: JSON) throws {
         intent = try json.getString(at: "intent")
         created = try json.getString(at: "created")
         updated = try json.getString(at: "updated")
         description = try? json.getString(at: "description")
-        examples = try? json.decodedArray(at: "examples", type: ExampleResponse.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `IntentExportResponse` model to JSON.
+    /// Used internally to serialize a `Intent` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["intent"] = intent
         json["created"] = created
         json["updated"] = updated
         if let description = description { json["description"] = description }
-        if let examples = examples {
-            json["examples"] = examples.map { $0.toJSONObject() }
-        }
         return json
     }
 }

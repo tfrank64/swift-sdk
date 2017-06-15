@@ -17,8 +17,8 @@
 import Foundation
 import RestKit
 
-/** ValueExportResponse. */
-public struct ValueExportResponse: JSONDecodable, JSONEncodable {
+/** ValueExport. */
+public struct ValueExport: JSONDecodable, JSONEncodable {
 
     /// The text of the entity value.
     public let value: String
@@ -36,7 +36,7 @@ public struct ValueExportResponse: JSONDecodable, JSONEncodable {
     public let synonyms: [String]?
 
     /**
-     Initialize a `ValueExportResponse` with member variables.
+     Initialize a `ValueExport` with member variables.
 
      - parameter value: The text of the entity value.
      - parameter metadata: Any metadata related to the entity value.
@@ -44,7 +44,7 @@ public struct ValueExportResponse: JSONDecodable, JSONEncodable {
      - parameter updated: The timestamp for the last update to the entity value.
      - parameter synonyms: An array of synonyms.
 
-     - returns: An initialized `ValueExportResponse`.
+     - returns: An initialized `ValueExport`.
     */
     public init(value: String, metadata: [String: Any], created: String, updated: String, synonyms: [String]? = nil) {
         self.value = value
@@ -55,7 +55,7 @@ public struct ValueExportResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `ValueExportResponse` model from JSON.
+    /// Used internally to initialize a `ValueExport` model from JSON.
     public init(json: JSON) throws {
         value = try json.getString(at: "value")
         metadata = try json.getDictionaryObject(at: "metadata")
@@ -65,7 +65,7 @@ public struct ValueExportResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `ValueExportResponse` model to JSON.
+    /// Used internally to serialize a `ValueExport` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["value"] = value

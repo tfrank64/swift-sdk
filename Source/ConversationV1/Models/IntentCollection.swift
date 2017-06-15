@@ -17,40 +17,40 @@
 import Foundation
 import RestKit
 
-/** ValueCollectionResponse. */
-public struct ValueCollectionResponse: JSONDecodable, JSONEncodable {
+/** IntentCollection. */
+public struct IntentCollection: JSONDecodable, JSONEncodable {
 
-    /// An array of entity values.
-    public let values: [ValueExportResponse]
+    /// An array of intents.
+    public let intents: [IntentExport]
 
     /// An object defining the pagination data for the returned objects.
-    public let pagination: PaginationResponse
+    public let pagination: Pagination
 
     /**
-     Initialize a `ValueCollectionResponse` with member variables.
+     Initialize a `IntentCollection` with member variables.
 
-     - parameter values: An array of entity values.
+     - parameter intents: An array of intents.
      - parameter pagination: An object defining the pagination data for the returned objects.
 
-     - returns: An initialized `ValueCollectionResponse`.
+     - returns: An initialized `IntentCollection`.
     */
-    public init(values: [ValueExportResponse], pagination: PaginationResponse) {
-        self.values = values
+    public init(intents: [IntentExport], pagination: Pagination) {
+        self.intents = intents
         self.pagination = pagination
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `ValueCollectionResponse` model from JSON.
+    /// Used internally to initialize a `IntentCollection` model from JSON.
     public init(json: JSON) throws {
-        values = try json.decodedArray(at: "values", type: ValueExportResponse.self)
-        pagination = try json.decode(at: "pagination", type: PaginationResponse.self)
+        intents = try json.decodedArray(at: "intents", type: IntentExport.self)
+        pagination = try json.decode(at: "pagination", type: Pagination.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `ValueCollectionResponse` model to JSON.
+    /// Used internally to serialize a `IntentCollection` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
-        json["values"] = values.map { $0.toJSONObject() }
+        json["intents"] = intents.map { $0.toJSONObject() }
         json["pagination"] = pagination.toJSONObject()
         return json
     }

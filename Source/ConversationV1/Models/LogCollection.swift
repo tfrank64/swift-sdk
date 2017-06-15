@@ -17,40 +17,40 @@
 import Foundation
 import RestKit
 
-/** An array of entities. */
-public struct EntityCollectionResponse: JSONDecodable, JSONEncodable {
+/** LogCollection. */
+public struct LogCollection: JSONDecodable, JSONEncodable {
 
-    /// An array of entities.
-    public let entities: [EntityExportResponse]
+    /// An array of log events.
+    public let logs: [LogExport]
 
     /// An object defining the pagination data for the returned objects.
-    public let pagination: PaginationResponse
+    public let pagination: LogPagination
 
     /**
-     Initialize a `EntityCollectionResponse` with member variables.
+     Initialize a `LogCollection` with member variables.
 
-     - parameter entities: An array of entities.
+     - parameter logs: An array of log events.
      - parameter pagination: An object defining the pagination data for the returned objects.
 
-     - returns: An initialized `EntityCollectionResponse`.
+     - returns: An initialized `LogCollection`.
     */
-    public init(entities: [EntityExportResponse], pagination: PaginationResponse) {
-        self.entities = entities
+    public init(logs: [LogExport], pagination: LogPagination) {
+        self.logs = logs
         self.pagination = pagination
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `EntityCollectionResponse` model from JSON.
+    /// Used internally to initialize a `LogCollection` model from JSON.
     public init(json: JSON) throws {
-        entities = try json.decodedArray(at: "entities", type: EntityExportResponse.self)
-        pagination = try json.decode(at: "pagination", type: PaginationResponse.self)
+        logs = try json.decodedArray(at: "logs", type: LogExport.self)
+        pagination = try json.decode(at: "pagination", type: LogPagination.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `EntityCollectionResponse` model to JSON.
+    /// Used internally to serialize a `LogCollection` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
-        json["entities"] = entities.map { $0.toJSONObject() }
+        json["logs"] = logs.map { $0.toJSONObject() }
         json["pagination"] = pagination.toJSONObject()
         return json
     }

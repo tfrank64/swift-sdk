@@ -17,40 +17,40 @@
 import Foundation
 import RestKit
 
-/** IntentCollectionResponse. */
-public struct IntentCollectionResponse: JSONDecodable, JSONEncodable {
+/** CounterexampleCollection. */
+public struct CounterexampleCollection: JSONDecodable, JSONEncodable {
 
-    /// An array of intents.
-    public let intents: [IntentExportResponse]
+    /// An array of ExampleResponse objects describing the examples marked as irrelevant input.
+    public let counterexamples: [Example]
 
     /// An object defining the pagination data for the returned objects.
-    public let pagination: PaginationResponse
+    public let pagination: Pagination
 
     /**
-     Initialize a `IntentCollectionResponse` with member variables.
+     Initialize a `CounterexampleCollection` with member variables.
 
-     - parameter intents: An array of intents.
+     - parameter counterexamples: An array of ExampleResponse objects describing the examples marked as irrelevant input.
      - parameter pagination: An object defining the pagination data for the returned objects.
 
-     - returns: An initialized `IntentCollectionResponse`.
+     - returns: An initialized `CounterexampleCollection`.
     */
-    public init(intents: [IntentExportResponse], pagination: PaginationResponse) {
-        self.intents = intents
+    public init(counterexamples: [Example], pagination: Pagination) {
+        self.counterexamples = counterexamples
         self.pagination = pagination
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `IntentCollectionResponse` model from JSON.
+    /// Used internally to initialize a `CounterexampleCollection` model from JSON.
     public init(json: JSON) throws {
-        intents = try json.decodedArray(at: "intents", type: IntentExportResponse.self)
-        pagination = try json.decode(at: "pagination", type: PaginationResponse.self)
+        counterexamples = try json.decodedArray(at: "counterexamples", type: Example.self)
+        pagination = try json.decode(at: "pagination", type: Pagination.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `IntentCollectionResponse` model to JSON.
+    /// Used internally to serialize a `CounterexampleCollection` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
-        json["intents"] = intents.map { $0.toJSONObject() }
+        json["counterexamples"] = counterexamples.map { $0.toJSONObject() }
         json["pagination"] = pagination.toJSONObject()
         return json
     }

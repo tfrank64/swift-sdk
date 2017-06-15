@@ -17,8 +17,8 @@
 import Foundation
 import RestKit
 
-/** ValueResponse. */
-public struct ValueResponse: JSONDecodable, JSONEncodable {
+/** Value. */
+public struct Value: JSONDecodable, JSONEncodable {
 
     /// The text of the entity value.
     public let value: String
@@ -33,14 +33,14 @@ public struct ValueResponse: JSONDecodable, JSONEncodable {
     public let updated: String
 
     /**
-     Initialize a `ValueResponse` with member variables.
+     Initialize a `Value` with member variables.
 
      - parameter value: The text of the entity value.
      - parameter metadata: Any metadata related to the entity value.
      - parameter created: The timestamp for creation of the entity value.
      - parameter updated: The timestamp for the last update to the entity value.
 
-     - returns: An initialized `ValueResponse`.
+     - returns: An initialized `Value`.
     */
     public init(value: String, metadata: [String: Any], created: String, updated: String) {
         self.value = value
@@ -50,7 +50,7 @@ public struct ValueResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `ValueResponse` model from JSON.
+    /// Used internally to initialize a `Value` model from JSON.
     public init(json: JSON) throws {
         value = try json.getString(at: "value")
         metadata = try json.getDictionaryObject(at: "metadata")
@@ -59,7 +59,7 @@ public struct ValueResponse: JSONDecodable, JSONEncodable {
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `ValueResponse` model to JSON.
+    /// Used internally to serialize a `Value` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["value"] = value

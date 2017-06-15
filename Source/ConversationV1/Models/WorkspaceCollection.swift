@@ -17,37 +17,37 @@
 import Foundation
 import RestKit
 
-/** WorkspaceCollectionResponse. */
-public struct WorkspaceCollectionResponse: JSONDecodable, JSONEncodable {
+/** WorkspaceCollection. */
+public struct WorkspaceCollection: JSONDecodable, JSONEncodable {
 
     /// An array of workspaces.
-    public let workspaces: [WorkspaceResponse]
+    public let workspaces: [Workspace]
 
     /// An object defining the pagination data for the returned objects.
-    public let pagination: PaginationResponse
+    public let pagination: Pagination
 
     /**
-     Initialize a `WorkspaceCollectionResponse` with member variables.
+     Initialize a `WorkspaceCollection` with member variables.
 
      - parameter workspaces: An array of workspaces.
      - parameter pagination: An object defining the pagination data for the returned objects.
 
-     - returns: An initialized `WorkspaceCollectionResponse`.
+     - returns: An initialized `WorkspaceCollection`.
     */
-    public init(workspaces: [WorkspaceResponse], pagination: PaginationResponse) {
+    public init(workspaces: [Workspace], pagination: Pagination) {
         self.workspaces = workspaces
         self.pagination = pagination
     }
 
     // MARK: JSONDecodable
-    /// Used internally to initialize a `WorkspaceCollectionResponse` model from JSON.
+    /// Used internally to initialize a `WorkspaceCollection` model from JSON.
     public init(json: JSON) throws {
-        workspaces = try json.decodedArray(at: "workspaces", type: WorkspaceResponse.self)
-        pagination = try json.decode(at: "pagination", type: PaginationResponse.self)
+        workspaces = try json.decodedArray(at: "workspaces", type: Workspace.self)
+        pagination = try json.decode(at: "pagination", type: Pagination.self)
     }
 
     // MARK: JSONEncodable
-    /// Used internally to serialize a `WorkspaceCollectionResponse` model to JSON.
+    /// Used internally to serialize a `WorkspaceCollection` model to JSON.
     public func toJSONObject() -> Any {
         var json = [String: Any]()
         json["workspaces"] = workspaces.map { $0.toJSONObject() }

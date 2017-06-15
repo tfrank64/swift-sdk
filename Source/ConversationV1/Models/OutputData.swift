@@ -24,7 +24,7 @@ public struct OutputData: JSONDecodable, JSONEncodable {
     public let json: [String: Any]
 
     /// Up to 50 messages logged with the request.
-    public let logMessages: [LogMessageResponse]
+    public let logMessages: [LogMessage]
 
     /// Responses to the user.
     public let text: [String]
@@ -36,7 +36,7 @@ public struct OutputData: JSONDecodable, JSONEncodable {
     /// Used internally to initialize a `OutputData` model from JSON.
     public init(json: JSON) throws {
         self.json = try json.getDictionaryObject()
-        logMessages = try json.decodedArray(at: "log_messages", type: LogMessageResponse.self)
+        logMessages = try json.decodedArray(at: "log_messages", type: LogMessage.self)
         text = try json.decodedArray(at: "text", type: String.self)
         nodesVisited = try? json.decodedArray(at: "nodes_visited", type: String.self)
     }
