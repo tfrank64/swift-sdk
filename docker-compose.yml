@@ -1,0 +1,25 @@
+app:
+  image: ibmcom/swift-ubuntu:3.1.1
+  volumes:
+    - .:/root/App
+  command: >
+    bash -c "cd /root/App 
+    && cp Source/SupportingFiles/Credentials.swift Tests/AlchemyDataNewsV1Tests/Credentials.swift 
+    && cp Source/SupportingFiles/Credentials.swift Tests/AlchemyDataNewsV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/AlchemyLanguageV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/AlchemyVisionV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/ConversationV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/DialogV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/DiscoveryV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/DocumentConversionV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/LanguageTranslatorV2Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/NaturalLanguageClassifierV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/NaturalLanguageUnderstandingV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/PersonalityInsightsV2Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/PersonalityInsightsV3Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/RelationshipExtractionV1BetaTests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/RetrieveAndRankV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/ToneAnalyzerV3Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/TradeoffAnalyticsV1Tests/Credentials.swift
+    && cp Source/SupportingFiles/Credentials.swift Tests/VisualRecognitionV3Tests/Credentials.swift
+    && swift package clean && swift build && swift test"

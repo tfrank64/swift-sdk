@@ -43,6 +43,9 @@ let package = Package(
     exclude: [
         "Source/SpeechToTextV1",
         "Source/SupportingFiles/Dependencies",
-        "Source/TextToSpeechV1"
+        "Source/TextToSpeechV1",
+        "Source/SupportingFiles/CredentialsExample.swift",
+        "Tests/SpeechToTextV1Tests",
+        "Tests/TextToSpeechV1Tests"
     ]
 )
