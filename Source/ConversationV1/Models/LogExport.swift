@@ -21,7 +21,7 @@ import RestKit
 public struct LogExport: JSONDecodable {
 
     /// A request formatted for the Conversation service.
-    public let request: MessageRequest
+    public let request: MessageRequest?
 
     /// A response from the Conversation service.
     public let response: MessageResponse
@@ -38,30 +38,29 @@ public struct LogExport: JSONDecodable {
     /**
      Initialize a `LogExport` with member variables.
 
-     - parameter request: A request formatted for the Conversation service.
      - parameter response: A response from the Conversation service.
      - parameter logID: A unique identifier for the logged message.
      - parameter requestTimestamp: The timestamp for receipt of the message.
      - parameter responseTimestamp: The timestamp for the system response to the message.
+     - parameter request: A request formatted for the Conversation service.
 
      - returns: An initialized `LogExport`.
     */
-    public init(request: MessageRequest, response: MessageResponse, logID: String, requestTimestamp: String, responseTimestamp: String) {
-        self.request = request
+    public init(response: MessageResponse, logID: String, requestTimestamp: String, responseTimestamp: String, request: MessageRequest? = nil) {
         self.response = response
         self.logID = logID
         self.requestTimestamp = requestTimestamp
         self.responseTimestamp = responseTimestamp
+        self.request = request
     }
 
     // MARK: JSONDecodable
     /// Used internally to initialize a `LogExport` model from JSON.
     public init(json: JSON) throws {
-        request = try json.decode(at: "request", type: MessageRequest.self)
+        request = try? json.decode(at: "request", type: MessageRequest.self)
         response = try json.decode(at: "response", type: MessageResponse.self)
         logID = try json.getString(at: "log_id")
         requestTimestamp = try json.getString(at: "request_timestamp")
         responseTimestamp = try json.getString(at: "response_timestamp")
     }
-
 }
