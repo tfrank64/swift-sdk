@@ -107,7 +107,7 @@ public class LanguageTranslator {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v2/models",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -161,7 +161,7 @@ public class LanguageTranslator {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v2/models",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -195,7 +195,7 @@ public class LanguageTranslator {
     {
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v2/models/\(modelID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -230,7 +230,7 @@ public class LanguageTranslator {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v2/models/\(modelID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -357,7 +357,7 @@ public class LanguageTranslator {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v2/translate",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -390,7 +390,7 @@ public class LanguageTranslator {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v2/identifiable_languages",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -430,7 +430,7 @@ public class LanguageTranslator {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v2/identify",
             credentials: credentials,
             headerParameters: defaultHeaders,

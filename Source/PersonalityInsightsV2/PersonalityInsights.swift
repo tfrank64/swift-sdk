@@ -227,7 +227,7 @@ public class PersonalityInsights {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v2/profile",
             credentials: credentials,
             headerParameters: headerParameters,

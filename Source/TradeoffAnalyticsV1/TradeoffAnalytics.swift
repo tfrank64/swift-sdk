@@ -105,7 +105,7 @@ public class TradeoffAnalytics {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/dilemmas",
             credentials: credentials,
             headerParameters: defaultHeaders,

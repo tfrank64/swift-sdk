@@ -96,7 +96,7 @@ public class AlchemyDataNews {
 
         // construct rest request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceUrl + "/data/GetNews",
             credentials: .apiKey,
             headerParameters: defaultHeaders,

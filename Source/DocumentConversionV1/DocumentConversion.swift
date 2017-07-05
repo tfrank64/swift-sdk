@@ -114,7 +114,7 @@ public class DocumentConversion {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/convert_document",
             credentials: credentials,
             headerParameters: defaultHeaders,

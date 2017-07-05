@@ -95,7 +95,7 @@ public class NaturalLanguageUnderstanding {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/analyze",
             credentials: credentials,
             headerParameters: defaultHeaders,

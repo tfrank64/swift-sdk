@@ -100,7 +100,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -155,7 +155,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/environments",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -193,7 +193,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/environments/\(environmentID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -228,7 +228,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -278,7 +278,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "PUT",
+            method: .put,
             url: serviceURL + "/v1/environments/\(environmentID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -323,7 +323,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)/configurations",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -369,7 +369,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/environments/\(environmentID)/configurations",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -409,7 +409,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/environments/\(environmentID)/configurations/\(configurationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -446,7 +446,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)/configurations/\(configurationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -491,7 +491,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "PUT",
+            method: .put,
             url: serviceURL + "/v1/environments/\(environmentID)/configurations/\(configurationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -579,7 +579,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/environments/\(environmentID)/preview",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -624,7 +624,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)/collections",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -682,7 +682,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/environments/\(environmentID)/collections",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -722,7 +722,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -759,7 +759,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -819,7 +819,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "PUT",
+            method: .put,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -859,7 +859,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)/fields",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -952,7 +952,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)/documents",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -996,7 +996,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)/documents/\(documentID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1037,7 +1037,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)/documents/\(documentID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1129,7 +1129,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)/documents/\(documentID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1221,7 +1221,7 @@ public class Discovery {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/environments/\(environmentID)/collections/\(collectionID)/query",
             credentials: credentials,
             headerParameters: defaultHeaders,

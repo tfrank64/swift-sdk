@@ -101,7 +101,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetAuthors",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -150,7 +150,7 @@ public class AlchemyLanguage {
         }
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetAuthors",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -197,7 +197,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetRankedConcepts",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -249,7 +249,7 @@ public class AlchemyLanguage {
         }
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetRankedConcepts",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -296,7 +296,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetRankedConcepts",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -374,7 +374,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetRankedNamedEntities",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -458,7 +458,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetRankedNamedEntities",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -538,7 +538,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetRankedNamedEntities",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -598,7 +598,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetRankedKeywords",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -664,7 +664,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetRankedKeywords",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -726,7 +726,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetRankedKeywords",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -758,7 +758,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetLanguage",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -803,7 +803,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetLanguage",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -835,7 +835,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetMicroformatData",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -886,7 +886,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetMicroformatData",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -918,7 +918,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetPubDate",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -968,7 +968,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetPubDate",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1055,7 +1055,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetRelations",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1148,7 +1148,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetRelations",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1237,7 +1237,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetRelations",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1269,7 +1269,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetTextSentiment",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1319,7 +1319,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetTextSentiment",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1360,7 +1360,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetTextSentiment",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1394,7 +1394,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetTargetedSentiment",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1447,7 +1447,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetTargetedSentiment",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1491,7 +1491,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetTargetedSentiment",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1523,7 +1523,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetRankedTaxonomy",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1572,7 +1572,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetRankedTaxonomy",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1613,7 +1613,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetRankedTaxonomy",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1645,7 +1645,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetRawText",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1694,7 +1694,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetRawText",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1743,7 +1743,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetText",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1798,7 +1798,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetText",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1841,7 +1841,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetTitle",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1890,7 +1890,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetTitle",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1922,7 +1922,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetFeedLinks",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1972,7 +1972,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetFeedLinks",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -2004,7 +2004,7 @@ public class AlchemyLanguage {
     {
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/url/URLGetEmotion",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -2054,7 +2054,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/html/HTMLGetEmotion",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -2096,7 +2096,7 @@ public class AlchemyLanguage {
         
         // construct request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceUrl + "/text/TextGetEmotion",
             credentials: .apiKey,
             headerParameters: defaultHeaders,

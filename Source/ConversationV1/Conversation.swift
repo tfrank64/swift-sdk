@@ -112,7 +112,7 @@ public class Conversation {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/workspaces/\(workspaceID)/message",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -166,7 +166,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -213,7 +213,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -260,7 +260,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -329,7 +329,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -385,7 +385,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -441,7 +441,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -490,7 +490,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -539,7 +539,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -610,7 +610,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -668,7 +668,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -726,7 +726,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -773,7 +773,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -826,7 +826,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -901,7 +901,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -961,7 +961,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1007,7 +1007,7 @@ public class Conversation {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/workspaces",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1052,7 +1052,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1103,7 +1103,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1165,7 +1165,7 @@ public class Conversation {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/workspaces",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -1218,7 +1218,7 @@ public class Conversation {
             return
         }
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + encodedPath,
             credentials: credentials,
             headerParameters: defaultHeaders,

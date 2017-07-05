@@ -81,7 +81,7 @@ public class TextToSpeech {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/voices",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -125,7 +125,7 @@ public class TextToSpeech {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/voices/\(voice)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -179,7 +179,7 @@ public class TextToSpeech {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/pronunciation",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -231,7 +231,7 @@ public class TextToSpeech {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/synthesize",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -305,7 +305,7 @@ public class TextToSpeech {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -358,7 +358,7 @@ public class TextToSpeech {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -391,7 +391,7 @@ public class TextToSpeech {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/customizations/\(customizationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -426,7 +426,7 @@ public class TextToSpeech {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -476,7 +476,7 @@ public class TextToSpeech {
 
         // construct the request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations/\(customizationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -513,7 +513,7 @@ public class TextToSpeech {
         
         // construct the request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)/words",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -557,7 +557,7 @@ public class TextToSpeech {
         
         // construct the request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations/\(customizationID)/words",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -595,7 +595,7 @@ public class TextToSpeech {
         
         // construct the request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/customizations/\(customizationID)/words/\(word)",
             credentials: credentials,
             headerParameters: defaultHeaders
@@ -631,7 +631,7 @@ public class TextToSpeech {
         
         // construct the request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)/words/\(word)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -676,7 +676,7 @@ public class TextToSpeech {
         
         // construct the request
         let request = RestRequest(
-            method: "PUT",
+            method: .put,
             url: serviceURL + "/v1/customizations/\(customizationID)/words/\(word)",
             credentials: credentials,
             headerParameters: defaultHeaders,

@@ -136,7 +136,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/classify",
             credentials: .apiKey,
             headerParameters: headerParameters,
@@ -216,7 +216,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/classify",
             credentials: .apiKey,
             headerParameters: headerParameters,
@@ -259,7 +259,7 @@ public class VisualRecognition {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/detect_faces",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -306,7 +306,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/detect_faces",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -346,7 +346,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/classifiers",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -436,7 +436,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/classifiers",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -475,7 +475,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v3/classifiers/\(classifierID)",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -516,7 +516,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/classifiers/\(classifierID)",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -586,7 +586,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/classifiers/\(classifierID)",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -637,7 +637,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/collections",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -674,7 +674,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/collections",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -711,7 +711,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/collections/\(collectionID)",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -747,7 +747,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v3/collections/\(collectionID)",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -810,7 +810,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/collections/\(collectionID)/images",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -850,7 +850,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/collections/\(collectionID)/images",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -888,7 +888,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/collections/\(collectionID)/images/\(imageID)",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -926,7 +926,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v3/collections/\(collectionID)/images/\(imageID)",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -968,7 +968,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v3/collections/\(collectionID)/images/\(imageID)/metadata",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1010,7 +1010,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v3/collections/\(collectionID)/images/\(imageID)/metadata",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1059,7 +1059,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "PUT",
+            method: .put,
             url: serviceURL + "/v3/collections/\(collectionID)/images/\(imageID)/metadata",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -1112,7 +1112,7 @@ public class VisualRecognition {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/collections/\(collectionID)/find_similar",
             credentials: .apiKey,
             headerParameters: defaultHeaders,

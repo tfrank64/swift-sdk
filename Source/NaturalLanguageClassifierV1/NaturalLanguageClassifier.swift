@@ -80,7 +80,7 @@ public class NaturalLanguageClassifier {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/classifiers",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -126,7 +126,7 @@ public class NaturalLanguageClassifier {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/classifiers",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -172,7 +172,7 @@ public class NaturalLanguageClassifier {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/classifiers/\(classifierId)/classify",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -205,7 +205,7 @@ public class NaturalLanguageClassifier {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/classifiers/\(classifierId)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -240,7 +240,7 @@ public class NaturalLanguageClassifier {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/classifiers/\(classifierId)",
             credentials: credentials,
             headerParameters: defaultHeaders,

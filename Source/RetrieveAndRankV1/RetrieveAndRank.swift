@@ -86,7 +86,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/solr_clusters",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -135,7 +135,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/solr_clusters",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -168,7 +168,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)",
             credentials: credentials,
             headerParameters: defaultHeaders
@@ -202,7 +202,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -234,7 +234,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/config",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -267,7 +267,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/config/\(configName)",
             credentials: credentials,
             headerParameters: defaultHeaders
@@ -303,7 +303,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/config/\(configName)",
             credentials: credentials,
             headerParameters: defaultHeaders
@@ -391,7 +391,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/config/\(configName)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -437,7 +437,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/solr/admin/collections",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -479,7 +479,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/solr/admin/collections",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -522,7 +522,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/solr/admin/collections",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -569,7 +569,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/solr/\(collectionName)/update",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -631,7 +631,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/solr/\(collectionName)/select",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -690,7 +690,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/solr_clusters/\(solrClusterID)/solr/\(collectionName)/fcselect",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -721,7 +721,7 @@ public class RetrieveAndRank {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/rankers",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -777,7 +777,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/rankers",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -829,7 +829,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/rankers/\(rankerID)/rank",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -861,7 +861,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/rankers/\(rankerID)",
             credentials: credentials,
             headerParameters: defaultHeaders
@@ -895,7 +895,7 @@ public class RetrieveAndRank {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/rankers/\(rankerID)",
             credentials: credentials,
             headerParameters: defaultHeaders,

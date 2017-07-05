@@ -96,7 +96,7 @@ public class SpeechToText {
     public func getModels(failure: ((Error) -> Void)? = nil, success: @escaping ([Model]) -> Void) {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/models",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -127,7 +127,7 @@ public class SpeechToText {
     {
         //construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/models/" + modelID,
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -370,7 +370,7 @@ public class SpeechToText {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -419,7 +419,7 @@ public class SpeechToText {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -453,7 +453,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/customizations/\(customizationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -488,7 +488,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -535,7 +535,7 @@ public class SpeechToText {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations/\(customizationID)/train",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -571,7 +571,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations/\(customizationID)/reset",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -605,7 +605,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations/\(customizationID)/upgrade",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -642,7 +642,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)/corpora",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -676,7 +676,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/customizations/\(customizationID)/corpora/\(name)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -713,7 +713,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)/corpora/\(name)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -770,7 +770,7 @@ public class SpeechToText {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations/\(customizationID)/corpora/\(name)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -830,7 +830,7 @@ public class SpeechToText {
         
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)/words",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -873,7 +873,7 @@ public class SpeechToText {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/customizations/\(customizationID)/words",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -917,7 +917,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "DELETE",
+            method: .delete,
             url: serviceURL + "/v1/customizations/\(customizationID)/words/\(name)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -954,7 +954,7 @@ public class SpeechToText {
     {
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/v1/customizations/\(customizationID)/words/\(name)",
             credentials: credentials,
             headerParameters: defaultHeaders,
@@ -995,7 +995,7 @@ public class SpeechToText {
         
         // construct REST request
         let request = RestRequest(
-            method: "PUT",
+            method: .put,
             url: serviceURL + "/v1/customizations/\(customizationID)/words/\(name)",
             credentials: credentials,
             headerParameters: defaultHeaders,

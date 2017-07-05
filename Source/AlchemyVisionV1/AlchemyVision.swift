@@ -103,7 +103,7 @@ public class AlchemyVision {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/image/ImageGetRankedImageFaceTags",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -154,7 +154,7 @@ public class AlchemyVision {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/url/URLGetRankedImageFaceTags",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -239,7 +239,7 @@ public class AlchemyVision {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/html/HTMLGetImage",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -279,7 +279,7 @@ public class AlchemyVision {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/url/URLGetImage",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -334,7 +334,7 @@ public class AlchemyVision {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/image/ImageGetRankedImageKeywords",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -391,7 +391,7 @@ public class AlchemyVision {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/url/URLGetRankedImageKeywords",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -428,7 +428,7 @@ public class AlchemyVision {
 
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/url/URLGetRankedImageSceneText",
             credentials: .apiKey,
             headerParameters: defaultHeaders,
@@ -467,7 +467,7 @@ public class AlchemyVision {
 
         // construct REST request
         let request = RestRequest(
-            method: "GET",
+            method: .get,
             url: serviceURL + "/url/URLGetRankedImageSceneText",
             credentials: .apiKey,
             headerParameters: defaultHeaders,

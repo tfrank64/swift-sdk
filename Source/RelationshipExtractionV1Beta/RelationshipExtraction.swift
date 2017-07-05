@@ -91,7 +91,7 @@ public class RelationshipExtraction {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v1/sire/0",
             credentials: credentials,
             headerParameters: defaultHeaders,

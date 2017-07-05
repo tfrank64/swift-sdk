@@ -114,7 +114,7 @@ public class ToneAnalyzer {
         
         // construct REST request
         let request = RestRequest(
-            method: "POST",
+            method: .post,
             url: serviceURL + "/v3/tone",
             credentials: credentials,
             headerParameters: defaultHeaders,

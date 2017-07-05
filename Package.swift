@@ -38,7 +38,7 @@ let package = Package(
         Target(name: "VisualRecognitionV3"),
     ],
     dependencies: [
-        .Package(url: "git@github.ibm.com:MIL/RestKit.git", majorVersion: 0)
+        .Package(url: "git@github.ibm.com:MIL/RestKit.git", "0.0.1")
     ],
     exclude: [
         "Source/SpeechToTextV1",

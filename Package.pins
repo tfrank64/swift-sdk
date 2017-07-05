@@ -1,0 +1,24 @@
+{
+  "autoPin": true,
+  "pins": [
+    {
+      "package": "CircuitBreaker",
+      "reason": null,
+      "repositoryURL": "https://github.com/IBM-Swift/CircuitBreaker.git",
+      "version": "1.0.0"
+    },
+    {
+      "package": "LoggerAPI",
+      "reason": null,
+      "repositoryURL": "https://github.com/IBM-Swift/LoggerAPI.git",
+      "version": "1.7.0"
+    },
+    {
+      "package": "RestKit",
+      "reason": null,
+      "repositoryURL": "git@github.ibm.com:MIL/RestKit.git",
+      "version": "0.0.1"
+    }
+  ],
+  "version": 1
+}
